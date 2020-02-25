@@ -1,16 +1,18 @@
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 
 public class Main {
-    public static void main(String[] args) {
-        byte[] bytes = "apples are cool".getBytes();
+    public static void main(final String[] args) {
+
+        final byte[] bytes = "apples are cool".getBytes();
 
         FileOutputStream fout = null;
         try {
             fout = new FileOutputStream("C:\\Users\\Vladimir\\Desktop\\testtext.txt");
             fout.write(bytes);
+            System.out.println("bytes written to the file!");
 
-        } catch (Exception e) {
+        } catch (final Exception e) {
+            System.out.println("Failed to write bytes to the file :(");
 
         } finally {
 
@@ -18,7 +20,7 @@ public class Main {
                 if (fout != null)
                     fout.close();
 
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 System.out.println(e.getMessage());
             }
         }
